@@ -63,18 +63,19 @@ Claude Code, Claude Desktop, Cursor, Codex CLI, Gemini CLI, Windsurf, Aider, Kir
 - **Dependency graph analysis** — impact radius, god nodes, architecture communities
 - **Rate limit detection** — scans tool logs, suggests alternatives
 
-## How it's different
+## Honest comparison
 
-| | Generic chat wrappers | ShardStitch |
-|---|---|---|
-| **Pricing** | Monthly subscription | **$49 one-time (lifetime)** |
-| **Privacy** | Routes through servers | **100% local, zero telemetry** |
-| **Git awareness** | None | **Automatic git diff & worktree scanning** |
-| **Architecture** | Blind to structure | **AST import parsing & impact radius** |
-| **File automation** | Manual clipboard | **Direct injection into pickup files** |
-| **Rate limits** | None | **Detects limits, suggests alternatives** |
-| **Tool coverage** | Single tool | **22 AI tools across the machine** |
-| **Works after lockout** | Needs live session | **Rebuilds from disk — no AI needed** |
+| Capability | Free CLI scripts | Chat wrappers | ShardStitch |
+|---|---|---|---|
+| **Tools covered** | 1–2 narrow targets | Web chat UI only | **22 AI coding targets** |
+| **Cross-tool handoff** | Partial or one-way | No codebase handoff | **Core workflow** |
+| **Git awareness** | Usually none | None | **Auto diff, commits, worktree scan** |
+| **Dependency graph** | None | Blind to codebase structure | **Impact radius and god-node detection** |
+| **Rate-limit detection** | None | None | **Local log scanning and switch recommendation** |
+| **File injection** | Manual files or clipboard | Clipboard only | **AGENTS.md, GEMINI.md, .cursorrules** |
+| **Interface** | CLI | Web app | **Dashboard, Alt+G, VS Code extension, installer** |
+| **Privacy / telemetry** | Local | Data routed to vendor cloud | **Air-gapped, local-only audit chain** |
+| **Works while locked out** | Yes | Needs API/provider access | **No API needed — rebuilds from disk** |
 
 ## 100% local
 
