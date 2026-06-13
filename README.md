@@ -80,33 +80,6 @@ Claude Code, Claude Desktop, Cursor, Codex CLI, Gemini CLI, Windsurf, Aider, Kir
 
 Your code never leaves your machine. No cloud, no telemetry, no account required. No dependencies beyond Python stdlib. All processing happens on your hardware.
 
-## Run from source
-
-```bash
-python app.py
-# Dashboard: http://127.0.0.1:8765
-```
-
-## Architecture
-
-```
-app.py              Backend API + dashboard server
-graph.py            Dependency graph, impact radius, god nodes, communities
-scanner.py          AI tool detection (22 tools across Windows/Mac/Linux)
-formatter.py        Per-agent format adapters (22 targets)
-router.py           Semantic task routing via local embeddings
-injector.py         File injection for auto-pickup (CLAUDE.md, AGENTS.md, etc.)
-local_model.py      Local/cloud LLM backends (Ollama, vLLM, OpenAI, Anthropic)
-memory.py           Persistent project knowledge (SQLite)
-team.py             Multi-developer coordination
-autosave.py         Automatic handover on session end
-timeline.py         Hash-chained audit trail
-mcp_server.py       MCP server (15 tools for Claude Code / Cursor)
-launcher.py         OS-level focus and paste macros
-vscode-extension/   VS Code / Cursor extension (Alt+G)
-web/                Dashboard UI
-```
-
 ## Pricing
 
 **Launch week: $19** (normally $49). One-time purchase, lifetime license, no subscription.
