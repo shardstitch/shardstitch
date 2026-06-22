@@ -27,21 +27,25 @@ yourself.
   SHA-256 of the installed binary yourself and confirm it matches.
 - **Inspect the packages.** The `npm` and `pip` packages contain no install-time
   scripts. You can unpack and read them before installing.
-- **Watch the traffic.** By default the only network calls are a one-time
-  license check and the verified binary download. The sole opt-in exceptions —
-  off unless you turn them on — are importing a `claude.ai/share/…` link you
-  paste, and an optional cloud LLM backend you configure with your own API key.
-  Point a network monitor at it and confirm nothing else leaves your machine.
+- **Watch the traffic.** The only network calls are license validation (at
+  activation, then a periodic re-check roughly every 14 days) and the verified
+  binary download. License validation goes to the **storefront that issued your
+  key** (Polar/Gumroad/Lemon Squeezy) and sends **only the key** — never to a
+  ShardStitch server; we run none and receive nothing. Two further calls happen
+  **only if you opt in** — importing a `claude.ai/share/…` link you paste, and a
+  cloud LLM backend you configure with your own API key. Point a network monitor
+  at it and confirm nothing else leaves your machine.
 
 ## Design principles
 
 - **Local by default.** Your code and conversations never leave your machine.
   Zero telemetry, no analytics, no update checks, no account. The only always-on
-  outbound calls are a one-time license activation and the SHA-256-verified
-  binary download. Two features reach the network **only when you explicitly opt
-  in** — importing a `claude.ai/share/…` link you paste, and routing context
-  through a cloud LLM provider you configure with your own API key — and both are
-  off by default.
+  outbound calls are license validation (at activation, then a periodic key-only
+  re-check against the storefront — never to us) and the SHA-256-verified binary
+  download. Two features reach the network **only when you explicitly opt in** —
+  importing a `claude.ai/share/…` link you paste, and routing context through a
+  cloud LLM provider you configure with your own API key — and both are off by
+  default.
 - **HTTPS + SHA-256 verified downloads.** The app binary is downloaded over
   HTTPS and its SHA-256 is verified before it can run. Mismatches abort the
   install.
