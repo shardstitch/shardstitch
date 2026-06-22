@@ -4,7 +4,7 @@
 
 Your code is half-written. Your plan is in your head. ShardStitch captures your entire session — git diff, changed files, dependency graph, *and the conversation itself* — and stitches it into the next AI tool. One hotkey. Keep building like nothing happened.
 
-> 🚀 **Launching on Product Hunt — June 24.**
+> 🚀 **Launching on Product Hunt — June 25.**
 
 [Website](https://shardstitch.com) · [VS Code](https://marketplace.visualstudio.com/items?itemName=shardstitch.shardstitch) · [npm](https://www.npmjs.com/package/shardstitch) · [PyPI](https://pypi.org/project/shardstitch/) · [Support](mailto:support@shardstitch.com)
 
