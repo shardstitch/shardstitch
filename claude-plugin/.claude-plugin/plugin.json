@@ -1,0 +1,13 @@
+{
+  "name": "shardstitch",
+  "displayName": "ShardStitch",
+  "version": "0.1.0",
+  "description": "Session recovery + cross-tool handoff for Claude Code. Auto-saves your session on stop, recalls verified project memory, and stitches context into the next AI tool when you hit a limit. 100% local. NOTE: this plugin is the Claude Code doorway to ShardStitch — it requires the ShardStitch backend installed (pip install shardstitch, or set SHARDSTITCH_HOME).",
+  "author": { "name": "rosha", "url": "https://shardstitch.com" },
+  "homepage": "https://shardstitch.com",
+  "repository": "https://github.com/shardstitch/shardstitch",
+  "keywords": ["handoff", "session-recovery", "memory", "mcp", "context", "rate-limit", "cross-tool"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./.mcp.json"
+}

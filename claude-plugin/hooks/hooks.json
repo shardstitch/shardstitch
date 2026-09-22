@@ -1,0 +1,21 @@
+{
+  "description": "ShardStitch — auto-save a session handoff/checkpoint when Claude Code stops.",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python",
+            "args": [
+              "${CLAUDE_PLUGIN_ROOT}/on_stop.py",
+              "--project",
+              "${CLAUDE_PROJECT_DIR}"
+            ],
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  }
+}

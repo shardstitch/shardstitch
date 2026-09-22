@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "shardstitch": {
+      "command": "python",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/mcp_launcher.py"],
+      "env": {
+        "SHARDSTITCH_PLUGIN_MODE": "true"
+      }
+    }
+  }
+}

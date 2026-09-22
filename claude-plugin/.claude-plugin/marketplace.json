@@ -1,0 +1,12 @@
+{
+  "name": "shardstitch",
+  "description": "ShardStitch — session recovery + cross-tool handoff for Claude Code (requires the local ShardStitch backend).",
+  "owner": { "name": "ShardStitch", "url": "https://shardstitch.com" },
+  "plugins": [
+    {
+      "name": "shardstitch",
+      "description": "Session recovery + cross-tool handoff — the Claude Code doorway to ShardStitch. Requires the local ShardStitch backend.",
+      "source": "./"
+    }
+  ]
+}
