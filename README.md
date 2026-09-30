@@ -56,8 +56,8 @@ Claude Code, Claude Desktop, Cursor, Codex CLI, Gemini CLI, Windsurf, Aider, Kir
 
 | Capability | Coverage |
 |---|---|
-| **Disk scan** (git + files + graph) | All 23 tools |
-| **Manual handoff** (copy/paste) | All 23 tools |
+| **Disk scan** (git + files + graph) | All 31 tools |
+| **Manual handoff** (copy/paste) | All 31 tools |
 | **File injection** (auto-pickup) | Claude Code, Cursor, Codex, Gemini, Windsurf, Aider, Cline, Roo Code, Kilo Code, Trae, Kiro |
 | **MCP** (16 tools, native call) | Claude Code, Cursor, Windsurf |
 | **Recall** (live conversation capture) | **16 of 27 capture surfaces** verified, 5 partial/beta, 6 pending (see below) |
