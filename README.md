@@ -48,7 +48,7 @@ The same trick fixes a bloated session in the *same* tool. Long AI chats accumul
 
 ShardStitch is the clean-restart button: extract a compact context, open a fresh window of the same tool, paste, keep going. Same model, fraction of the tokens, none of the drag.
 
-## 23 supported AI tools
+## 31 supported AI tools
 
 Claude Code, Claude Desktop, Cursor, Codex CLI, Gemini CLI, Windsurf, Aider, Kiro, Amazon Q Developer, DeepSeek, OpenCode, Trae, Factory Droid, OpenClaw, Amp, Cline, Roo Code, Kilo Code, Crush, Qwen Code, Antigravity, ChatGPT, and Grok. Plus 4 browser-only chat surfaces (Perplexity, Claude.ai, Kimi, Gemini Web).
 
