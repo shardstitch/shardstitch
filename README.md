@@ -98,7 +98,7 @@ Disk scan still gives every one of these a full project handoff regardless of Re
 
 | Capability | Free CLI scripts | Chat wrappers | ShardStitch |
 |---|---|---|---|
-| **Tools covered** | 1–2 narrow targets | Web chat UI only | **23 AI coding targets** |
+| **Tools covered** | 1–2 narrow targets | Web chat UI only | **31 AI coding targets** |
 | **Cross-tool handoff** | Partial or one-way | No codebase handoff | **Core workflow** |
 | **Git awareness** | Usually none | None | **Auto diff, commits, worktree scan** |
 | **Dependency graph** | None | Blind to codebase | **Impact radius + god-node detection** |
