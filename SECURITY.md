@@ -1,66 +1,71 @@
 # Security Policy
 
-## Reporting
+## Reporting a Vulnerability
 
-Email **support@shardstitch.com** with security concerns. We aim to respond
-within 72 hours. Please do not open public issues for undisclosed
-vulnerabilities.
+Email **support@shardstitch.com** with security concerns. We aim to provide an initial response within **72 hours**.
 
-**Good-faith safe harbor:** we will not pursue or support legal action against
-researchers who discover and report vulnerabilities in good faith, without
-violating user privacy or disrupting service. Report it, give us reasonable time
-to fix it, and we'll credit you if you'd like.
+Please include the affected version, reproduction steps, potential impact, and any relevant logs with credentials and personal information removed. Do not open a public issue for an undisclosed vulnerability.
 
-## Closed source, verifiable binaries
+## Good-Faith Research
 
-ShardStitch is closed-source. Its integrity does not depend on you reading the
-code — it depends on checksum-verified binaries you can confirm before
-anything runs. Every claim below is verifiable from the outside: inspect the
-published packages, check the SHA-256 of any download, and watch the network
-yourself.
+We welcome responsible security research. We will not pursue or support legal action against researchers conducting good-faith research within this policy, provided they:
 
-## Verify it yourself
+- Test systems and installations they own or have permission to assess.
+- Avoid accessing, retaining, or disclosing other people's private data.
+- Avoid disrupting services or making destructive changes.
+- Report findings privately and allow reasonable time for remediation.
 
-- **Checksum-verified install.** The installer verifies each downloaded binary's
-  SHA-256 against the checksum the storefront publishes for that exact file —
-  before it ever runs. A mismatch aborts the install. You can re-compute the
-  SHA-256 of the installed binary yourself and confirm it matches.
-- **Inspect the packages.** The `npm` and `pip` packages contain no install-time
-  scripts. You can unpack and read them before installing.
-- **Watch the traffic.** The only network calls are license validation (at
-  activation, then a periodic re-check roughly every 14 days) and the verified
-  binary download. License validation goes to the **storefront that issued your
-  key** (Polar/Gumroad/Lemon Squeezy) and sends **only the key** — never to a
-  ShardStitch server; we run none and receive nothing. Two further calls happen
-  **only if you opt in** — importing a `claude.ai/share/…` link you paste, and a
-  cloud LLM backend you configure with your own API key. Point a network monitor
-  at it and confirm nothing else leaves your machine.
+We can credit researchers with their permission.
 
-## Design principles
+## Closed Source and Binary Integrity
 
-- **Local by default.** Your code and conversations never leave your machine.
-  Zero telemetry, no analytics, no update checks, no account. The only always-on
-  outbound calls are license validation (at activation, then a periodic key-only
-  re-check against the storefront — never to us) and the SHA-256-verified binary
-  download. Two features reach the network **only when you explicitly opt in** —
-  importing a `claude.ai/share/…` link you paste, and routing context through a
-  cloud LLM provider you configure with your own API key — and both are off by
-  default.
-- **HTTPS + SHA-256 verified downloads.** The app binary is downloaded over
-  HTTPS and its SHA-256 is verified before it can run. Mismatches abort the
-  install.
-- **No lifecycle scripts.** `npm install shardstitch` and `pip install
-  shardstitch` execute no code on install. The binary is only downloaded when
-  you explicitly run `shardstitch install <key>`.
-- **Browser capture uses localhost-only standard protocols.** Conversation
-  capture connects to the browser via the same standard automation interfaces
-  used by Puppeteer, Playwright, and VS Code. The connection is bound to
-  localhost (127.0.0.1), and the debug port is not opened to web origins — we do
-  not pass `--remote-allow-origins`, so the browser's default blocks cross-origin
-  DevTools connections. It is never exposed to the network.
+ShardStitch is closed-source. Published packages, downloaded binaries, and observable network behavior can still be inspected.
 
-## Note for automated scanners
+A matching checksum confirms that a file matches the referenced download. It does not, by itself, establish that the software is secure or free from vulnerabilities.
 
-ShardStitch legitimately launches local AI tools, reads their on-disk data for
-conversation capture, and downloads a verified binary during install. All of
-this is user-initiated, local-only, and integrity-verified.
+## Verifying an Installation
+
+- **Check the download:** compare the binary's SHA-256 with the checksum published for that exact release.
+- **Inspect the launcher packages:** review the npm or PyPI package contents and installation configuration.
+- **Observe network activity:** use a network monitor to examine your installed version during activation, recovery, conversation capture, and any optional integrations.
+- **Report discrepancies:** contact us if observed behavior differs from the documented behavior for your version.
+
+## Local Processing and Network Features
+
+Normal project scanning and recovery are designed to run locally, with no ShardStitch telemetry.
+
+Some operations require network access:
+
+- Downloading the application binary.
+- Validating a license with the applicable licensing provider.
+- Importing a shared conversation link when requested.
+- Using a cloud model provider that you explicitly configure.
+- Sending a handoff to an external AI service.
+
+Depending on the feature, these operations may transmit license information, request metadata, or selected content. External providers apply their own privacy and retention policies.
+
+Review the settings and documentation for your installed version before enabling optional integrations. Remove secrets and sensitive information from handoffs before sharing them.
+
+## Downloads and Package Installation
+
+Application downloads should use HTTPS. The installer is intended to verify the downloaded binary against its published SHA-256 checksum and abort installation if verification fails.
+
+The launcher packages and the application binary are separate components. Inspect the package for the version you intend to install rather than assuming identical behavior across releases.
+
+## Browser Conversation Capture
+
+Supported browser capture workflows may use local browser debugging or automation interfaces.
+
+Keep debugging endpoints bound to loopback interfaces such as `127.0.0.1`. Do not expose them to your local network or the internet. Browser debugging access can expose sensitive session data, so enable it only for supported workflows and disable it when no longer needed.
+
+A localhost connection alone does not guarantee protection from every process running on the same device.
+
+## Guidance for Automated Scanners
+
+Expected behavior may include reading local project files and supported conversation history, invoking configured local tools, and downloading an application binary during an explicitly requested installation.
+
+These capabilities should be evaluated against the user's configuration and documented behavior. Unexpected outbound traffic, access to unrelated data, or failed integrity checks should be investigated and reported.
+
+## Scope
+
+This policy applies to ShardStitch. Planned ShardDesign and Guardrails MCP features are not publicly available and should not be treated as shipped security capabilities.
